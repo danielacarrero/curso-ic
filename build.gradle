@@ -30,6 +30,7 @@ sourceSets {
 
 	acceptanceTest {
 
+
 		java {
 			compileClasspath += main.output
 			compileClasspath += main.compileClasspath
@@ -50,8 +51,8 @@ task verify(type: Test) {
 	testClassesDirs = sourceSets.acceptanceTest.output.classesDirs
 	classpath = sourceSets.acceptanceTest.runtimeClasspath
 
-	dependsOn 'test'
-	verify.mustRunAfter 'test'
+	//dependsOn 'test'
+	//verify.mustRunAfter 'test'
 }
 
 def appVersion =  System.properties['appVersion']?:'0.0.1-SNAPSHOT'
