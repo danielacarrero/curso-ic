@@ -17,7 +17,7 @@ public class DefinicionDeSteps {
 	
 	@Given("no existe el cliente {string}")
 	public void noExisteElCliente(String nombreCliente) {
-		Response respuesta =  get("http://localhost:8080/clients/v1.0/?name=" + nombreCliente);
+		Response respuesta =  get("10.10.35.67" + nombreCliente);
 		
 		if (respuesta.statusCode() == HttpStatus.SC_OK) {
 			Client cliente = respuesta.as(Client.class);
@@ -25,7 +25,7 @@ public class DefinicionDeSteps {
 			given()
 				.body(cliente)
 				.contentType(ContentType.JSON).
-			delete("http://localhost:8080/clients/v1.0").
+			delete("10.10.35.67").
 			then()
 				.statusCode(HttpStatus.SC_OK);
 		}
