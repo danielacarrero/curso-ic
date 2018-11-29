@@ -12,6 +12,7 @@ pipeline {
          post{
             always{
 
+                junit 'build/test-results/test/*.xml'
                 println "ava se exportan los resultados de los test unitarios"
             }
          }
